@@ -24,6 +24,7 @@ public class PasswordController {
             @RequestBody PasswordDto dto) {
         PasswordProperties passwordProperties = new PasswordProperties(dto);
         try {
+            System.out.println("teste")
             return new ResponseEntity<>(passwordBuilderService.passwordBuilder(passwordProperties), HttpStatus.CREATED);
         } catch (PasswordGeneratorException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
